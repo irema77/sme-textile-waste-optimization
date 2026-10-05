@@ -5,6 +5,8 @@
 ![Optimization](https://img.shields.io/badge/Operations_Research-Linear_Programming-orange)
 ![TÜBİTAK](https://img.shields.io/badge/Grant-TÜBİTAK_2209--A-red)
 
+> **Note on Data Privacy:** Due to the commercial confidentiality of the real SME data used during this TÜBİTAK-granted project, the dataset provided in this repository has been simulated. This framework is shared solely to demonstrate the underlying mathematical logic, operations research approach, and linear programming methodology.
+
 ## Project Overview
 This repository contains the core computational model and decision support framework developed under the **TÜBİTAK 2209-A Research Grant**. The project introduces an optimization-based Decision Support System (DSS) tailored for Small and Medium-sized Enterprises (SMEs) in the textile sector. 
 
