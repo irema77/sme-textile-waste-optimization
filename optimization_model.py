@@ -1,24 +1,22 @@
 import pandas as pd
 from pulp import LpProblem, LpMinimize, LpVariable, lpSum, value
 import logging
+import os
 
 # Configure logging for professional output
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
-def load_simulated_data():
+def load_data(file_path):
     """
-    Simulates the data extraction process from an SME's ERP/Database system.
-    In production, this would be replaced with a SQL/PostgreSQL query.
+    Loads the simulated waste generation data from a CSV file.
+    In a real SME environment, this connects to an ERP database.
     """
-    logging.info("Loading waste generation data for the current period...")
-    data = {
-        'Waste_Type': ['Cotton', 'Polyester', 'Blend_Fabric', 'Nylon'],
-        'Amount_kg': [1200, 850, 600, 300],
-        'Recycle_Cost_per_kg': [2.5, 3.0, 4.5, 5.0],
-        'Disposal_Cost_per_kg': [4.0, 5.5, 6.0, 7.5],
-        'Recycle_Capacity_kg': [1000, 1000, 400, 200]
-    }
-    return pd.DataFrame(data)
+    logging.info(f"Loading waste generation data from {file_path}...")
+    if not os.path.exists(file_path):
+        logging.error(f"File not found: {file_path}")
+        raise FileNotFoundError(f"File not found: {file_path}")
+    
+    return pd.read_csv(file_path)
 
 def run_optimization(df):
     """
@@ -67,6 +65,8 @@ def generate_report(df, model, recycle_vars, dispose_vars):
     print("="*50 + "\n")
 
 if __name__ == "__main__":
-    waste_data = load_simulated_data()
+    # Updated to read from the mock_data directory
+    data_path = "mock_data/waste_data.csv"
+    waste_data = load_data(data_path)
     optimal_model, r_vars, d_vars = run_optimization(waste_data)
     generate_report(waste_data, optimal_model, r_vars, d_vars)
