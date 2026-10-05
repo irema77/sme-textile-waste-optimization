@@ -1,0 +1,5 @@
+Waste_Type,Amount_kg,Recycle_Cost_per_kg,Disposal_Cost_per_kg,Recycle_Capacity_kg
+Cotton,1200,2.5,4.0,1000
+Polyester,850,3.0,5.5,1000
+Blend_Fabric,600,4.5,6.0,400
+Nylon,300,5.0,7.5,200
